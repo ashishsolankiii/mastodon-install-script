@@ -11,20 +11,20 @@ else
 fi
 
 # Correct permission ~/.config
-sudo mkdir -p ~/.config
-sudo chown mastodon:mastodon ~/.config
+ mkdir -p ~/.config
+ chown mastodon:mastodon ~/.config
 
 # Clone Mastodon
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y git curl ufw
+ apt update
+ apt upgrade -y
+ apt install -y git curl ufw
 git clone https://github.com/mastodon/mastodon.git ~/live
 cd ~/live
 
 # Install packages
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt install -y npm 
-sudo apt install -y \
+curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
+ apt install -y npm 
+ apt install -y \
   ufw imagemagick ffmpeg libpq-dev libxml2-dev libxslt1-dev file git-core \
   g++ libprotobuf-dev protobuf-compiler pkg-config nodejs gcc autoconf \
   bison build-essential libssl-dev libyaml-dev libreadline6-dev \
@@ -54,10 +54,10 @@ echo N | rbenv install $(cat ~/live/.ruby-version)
 rbenv global $(cat ~/live/.ruby-version)
 
 # Setup ufw
-printf y | sudo ufw enable
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw allow 22 #sshシャットアウト対策
+printf y | ufw enable
+ ufw allow 80
+ ufw allow 443
+ ufw allow 22 #sshシャットアウト対策
 
 # Install yarn
 sudo npm install -g yarn 
